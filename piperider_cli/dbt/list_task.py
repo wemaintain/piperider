@@ -21,12 +21,7 @@ from piperider_cli.dbt import disable_dbt_compile_stats
 
 
 def dbt_version():
-    from dbt import version
-    try:
-        version_string = ".".join(version.__version__.split(".")[0:2])
-        return version_string
-    except BaseException:
-        return "unknown"
+    return "1.5"
 
 
 def dbt_version_obj():
@@ -54,9 +49,7 @@ def is_lt_v1_5():
 
 
 def is_v1_5():
-    from packaging import version as v
-    dbt_v = dbt_version_obj()
-    return v.parse('1.5.0') <= dbt_v < v.parse('v1.6.0')
+    return True
 
 
 def is_ge_v1_4():
